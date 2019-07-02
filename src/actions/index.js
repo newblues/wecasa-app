@@ -3,9 +3,7 @@ import { AT } from './action-types';
 
 const END_POINT = 'https://www.wecasa.fr/api/techtest/';
 
-// eslint-disable-next-line import/prefer-default-export
 export const fetchCatalog = () => {
-  // eslint-disable-next-line func-names
   return function(dispatch) {
     dispatch({ type: AT.FETCH_CATALOG_PENDING });
     fetch(`${END_POINT}/universe`)
@@ -16,5 +14,23 @@ export const fetchCatalog = () => {
       .catch(error => {
         dispatch({ type: AT.FETCH_CATALOG_ERROR, payload: error });
       });
+  };
+};
+
+export const addPrestation = prestation => {
+  return function(dispatch) {
+    dispatch({
+      type: AT.ADD_PRESTATION,
+      payload: prestation,
+    });
+  };
+};
+
+export const deletePrestation = prestation => {
+  return function(dispatch) {
+    dispatch({
+      type: AT.DELETE_PRESTATION,
+      payload: prestation,
+    });
   };
 };

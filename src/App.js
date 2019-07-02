@@ -8,6 +8,7 @@ import './App.css';
 
 import reducers from './reducers';
 import HomePage from './containers/home-page';
+import BasketContainer from './containers/basket-container';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
@@ -20,6 +21,7 @@ function App() {
       )}
     >
       <div className="App">
+        <BasketContainer />
         <HomePage />
       </div>
     </Provider>

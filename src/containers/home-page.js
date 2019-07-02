@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Row, Container } from 'reactstrap';
-import { fetchCatalog } from '../actions/index';
+import { fetchCatalog, addPrestation } from '../actions/index';
 
 import Prestation from '../components/prestation';
 import Loader from '../components/loader';
@@ -17,12 +17,22 @@ class HomePage extends Component {
     this.props.fetchCatalog();
   }
 
+  addPrestation = prestation => {
+    this.props.addPrestation(prestation);
+  };
+
   renderPrestations = () => {
     const { catalog } = this.props;
 
     if (catalog.pending === false) {
       return catalog.haircut.categories.map(categorie => {
-        return <Prestation key={categorie.reference} categorie={categorie} />;
+        return (
+          <Prestation
+            key={categorie.reference}
+            categorie={categorie}
+            addPrestationCallBack={this.addPrestation}
+          />
+        );
       });
     }
   };
@@ -45,7 +55,7 @@ class HomePage extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators({ fetchCatalog }, dispatch),
+  ...bindActionCreators({ fetchCatalog, addPrestation }, dispatch),
 });
 
 const mapStateToProps = state => {
