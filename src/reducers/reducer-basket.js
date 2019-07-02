@@ -4,6 +4,7 @@ const initialState = {
   prestations: [],
   address: null,
   appointment: null,
+  ref: [],
 };
 
 export default function ReducerBasket(state = initialState, action) {
@@ -12,7 +13,7 @@ export default function ReducerBasket(state = initialState, action) {
       return {
         ...state,
         prestations: [...state.prestations, action.payload],
-        address: action.adress,
+        ref: [...state.ref, action.ref],
       };
     case AT.DELETE_PRESTATION:
       const index = state.prestations.indexOf(action.payload);
@@ -21,7 +22,7 @@ export default function ReducerBasket(state = initialState, action) {
         return { ...state };
       }
       break;
-    case AT.ADD_ADRESS:
+    case AT.ADD_ADDRESS:
       return {
         ...state,
         address: action.payload,

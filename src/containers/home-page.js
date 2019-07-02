@@ -18,7 +18,7 @@ class HomePage extends Component {
   }
 
   addPrestation = prestation => {
-    this.props.addPrestation(prestation);
+    this.props.addPrestation(prestation, prestation.reference);
   };
 
   renderPrestations = () => {

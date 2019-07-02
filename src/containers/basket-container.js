@@ -51,16 +51,8 @@ class BasketContainer extends Component {
     return totalDuration;
   };
 
-  // time_convert = num => {
-  //   const hours = Math.floor(num / 60);
-  //   const minutes = num % 60;
-  //   return `${hours}:${minutes}`;
-  // };
-
   render() {
     const { basket } = this.props;
-
-    console.log('TLC: BasketContainer -> render -> basket', basket);
 
     return (
       <div style={styles.container}>

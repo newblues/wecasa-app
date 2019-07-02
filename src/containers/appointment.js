@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addAppointment, fetchBooking } from '../actions/index';
 
-class CalendarForm extends Component {
+import SuccessAlert from '../components/successAlert';
+
+class Appointment extends Component {
   state = {
     date: new Date(),
   };
@@ -20,13 +22,14 @@ class CalendarForm extends Component {
     const bookingData = JSON.stringify({
       address: basket.address,
       appointment: basket.appointment,
-      prestations: basket.prestations,
+      prestations: basket.ref,
     });
     this.props.fetchBooking(bookingData);
   };
 
   render() {
-    const { basket } = this.props;
+    const { basket, booking } = this.props;
+    console.log('TLC: Appointment -> render -> booking', booking);
     const { date } = this.state;
 
     return (
@@ -44,6 +47,7 @@ class CalendarForm extends Component {
             </Button>{' '}
           </div>
         ) : null}
+        {booking.success ? <SuccessAlert /> : null}
       </div>
     );
   }
@@ -57,9 +61,10 @@ const mapStateToProps = state => {
   return {
     catalog: state.catalog,
     basket: state.basket,
+    booking: state.booking,
   };
 };
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CalendarForm);
+)(Appointment);

@@ -3,7 +3,7 @@ import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button, Col } from '
 
 const prestation = ({ categorie, addPrestationCallBack }) => {
   const addPrestation = presta => {
-    addPrestationCallBack(presta.reference);
+    addPrestationCallBack(presta);
   };
 
   const prestationList = categorie.prestations.map(presta => {
