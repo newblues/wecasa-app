@@ -64,7 +64,6 @@ export const fetchBooking = bookingData => {
     })
       .then(response => response.json())
       .then(response => {
-        console.log('TLC: response SUCCESS', response);
         dispatch({ type: AT.BOOKING_SUCCESS, payload: response });
       })
       .catch(error => {

@@ -19,7 +19,6 @@ class BasketContainer extends Component {
 
     if (basket.prestations.length > 0) {
       return basket.prestations.map((prestation, i) => {
-        console.log('TLC: BasketContainer -> renderBasket -> prestation', prestation);
         return (
           <BasketListItem
             key={i}

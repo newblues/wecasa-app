@@ -29,7 +29,6 @@ class Appointment extends Component {
 
   render() {
     const { basket, booking } = this.props;
-    console.log('TLC: Appointment -> render -> booking', booking);
     const { date } = this.state;
 
     return (
