@@ -43,3 +43,12 @@ export const addAdress = adress => {
     });
   };
 };
+
+export const addAppointment = appointment => {
+  return function(dispatch) {
+    dispatch({
+      type: AT.ADD_APPOINTMENT,
+      payload: appointment,
+    });
+  };
+};

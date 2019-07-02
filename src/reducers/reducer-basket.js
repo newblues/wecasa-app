@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export default function ReducerBasket(state = initialState, action) {
-  console.log('state dans mon reducer', state);
   switch (action.type) {
     case AT.ADD_PRESTATION:
       return {
@@ -26,6 +25,11 @@ export default function ReducerBasket(state = initialState, action) {
       return {
         ...state,
         adress: action.payload,
+      };
+    case AT.ADD_APPOINTMENT:
+      return {
+        ...state,
+        appointment: action.payload,
       };
     default:
       return state;
