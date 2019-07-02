@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Label, Input } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 const BasketListItem = props => {
   const { prestation } = props;

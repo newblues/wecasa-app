@@ -35,7 +35,7 @@ export const deletePrestation = prestation => {
   };
 };
 
-export const addAdress = adress => {
+export const addAddress = adress => {
   return function(dispatch) {
     dispatch({
       type: AT.ADD_ADRESS,
@@ -50,5 +50,25 @@ export const addAppointment = appointment => {
       type: AT.ADD_APPOINTMENT,
       payload: appointment,
     });
+  };
+};
+
+export const fetchBooking = bookingData => {
+  console.log('TLC: bookingData ------------->', bookingData);
+
+  return function(dispatch) {
+    fetch(`${END_POINT}/booking`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: bookingData,
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log('TLC: response SUCESS', response);
+        dispatch({ type: AT.BOOKING_SUCCESS, payload: response });
+      })
+      .catch(error => {
+        dispatch({ type: AT.BOOKING_ERROR, payload: error });
+      });
   };
 };

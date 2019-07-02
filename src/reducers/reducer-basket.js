@@ -2,7 +2,7 @@ import { AT } from '../actions/action-types';
 
 const initialState = {
   prestations: [],
-  adress: null,
+  address: null,
   appointment: null,
 };
 
@@ -12,7 +12,7 @@ export default function ReducerBasket(state = initialState, action) {
       return {
         ...state,
         prestations: [...state.prestations, action.payload],
-        adress: action.adress,
+        address: action.adress,
       };
     case AT.DELETE_PRESTATION:
       const index = state.prestations.indexOf(action.payload);
@@ -24,7 +24,7 @@ export default function ReducerBasket(state = initialState, action) {
     case AT.ADD_ADRESS:
       return {
         ...state,
-        adress: action.payload,
+        address: action.payload,
       };
     case AT.ADD_APPOINTMENT:
       return {

@@ -3,27 +3,27 @@ import { Button, Form, Label, Input } from 'reactstrap';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addAdress } from '../actions/index';
+import { addAddress } from '../actions/index';
 
-class AdressForm extends Component {
+class addressForm extends Component {
   constructor() {
     super();
     this.state = {
-      adress: '',
+      address: '',
     };
   }
 
-  handleChangeAdress = event => {
-    this.setState({ adress: event.target.value });
+  handleChangeaddress = event => {
+    this.setState({ address: event.target.value });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.addAdress(this.state.adress);
+    this.props.addAddress(this.state.address);
   };
 
   render() {
-    const { adress } = this.state;
+    const { address } = this.state;
     const { basket } = this.props;
 
     return (
@@ -34,9 +34,9 @@ class AdressForm extends Component {
             <Label>
               <Input
                 type="text"
-                value={adress}
-                onChange={this.handleChangeAdress}
-                placeholder="Add your adress..."
+                value={address}
+                onChange={this.handleChangeaddress}
+                placeholder="Add your address..."
               />{' '}
             </Label>
             <Button type="submit" value="Submit" color="primary">
@@ -50,7 +50,7 @@ class AdressForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators({ addAdress }, dispatch),
+  ...bindActionCreators({ addAddress }, dispatch),
 });
 
 const mapStateToProps = state => {
@@ -62,4 +62,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(AdressForm);
+)(addressForm);

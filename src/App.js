@@ -9,10 +9,8 @@ import './App.css';
 import reducers from './reducers';
 import HomePage from './containers/home-page';
 import BasketContainer from './containers/basket-container';
-import AdressForm from './containers/adress-form';
+import AddressForm from './containers/address-form';
 import CalendarForm from './containers/calendar-form';
-
-import Demo from './containers/demo';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
@@ -26,7 +24,7 @@ function App() {
     >
       <div className="App">
         <BasketContainer />
-        <AdressForm />
+        <AddressForm />
         <CalendarForm />
         <HomePage />
       </div>
