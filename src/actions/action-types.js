@@ -1,0 +1,6 @@
+/* eslint-disable import/prefer-default-export */
+export const AT = {
+  FETCH_CATALOG_PENDING: 'FETCH_CATALOG_PENDING',
+  FETCH_CATALOG_SUCCESS: 'FETCH_CATALOG_SUCCESS',
+  FETCH_CATALOG_ERROR: 'FETCH_CATALOG_ERROR',
+};
