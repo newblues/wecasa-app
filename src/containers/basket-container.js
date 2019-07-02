@@ -5,6 +5,14 @@ import { deletePrestation } from '../actions/index';
 
 import BasketListItem from '../components/basket-list-item';
 
+const styles = {
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+};
+
 class BasketContainer extends Component {
   renderBasket = () => {
     const { basket } = this.props;
@@ -55,7 +63,7 @@ class BasketContainer extends Component {
     console.log('TLC: BasketContainer -> render -> basket', basket);
 
     return (
-      <div>
+      <div style={styles.container}>
         {basket.prestations.length > 0 ? (
           <div>
             <h5>Mon Panier</h5>

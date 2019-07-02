@@ -22,6 +22,11 @@ export default function ReducerBasket(state = initialState, action) {
         return { ...state };
       }
       break;
+    case AT.ADD_ADRESS:
+      return {
+        ...state,
+        adress: action.payload,
+      };
     default:
       return state;
   }

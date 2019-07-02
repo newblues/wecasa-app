@@ -34,3 +34,12 @@ export const deletePrestation = prestation => {
     });
   };
 };
+
+export const addAdress = adress => {
+  return function(dispatch) {
+    dispatch({
+      type: AT.ADD_ADRESS,
+      payload: adress,
+    });
+  };
+};
