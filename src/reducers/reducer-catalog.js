@@ -1,9 +1,9 @@
 import { AT } from '../actions/action-types';
 
 const initialState = {
-  pending: null,
-  haircut: [],
+  pending: false,
   error: null,
+  haircutUniverse: [],
 };
 
 export default function ReducerCatalog(state = initialState, action) {
@@ -17,14 +17,15 @@ export default function ReducerCatalog(state = initialState, action) {
       return {
         ...state,
         pending: false,
-        haircut: action.payload,
+        haircutUniverse: action.payload,
       };
     case AT.FETCH_CATALOG_ERROR:
       return {
         ...state,
-        pending: null,
+        pending: false,
         error: action.error,
       };
+
     default:
       return state;
   }

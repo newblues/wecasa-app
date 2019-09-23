@@ -3,14 +3,17 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 import reducers from './reducers';
-import HomePage from './containers/home-page';
-import BasketContainer from './containers/basket-container';
-import AddressForm from './containers/address-form';
-import Appointment from './containers/appointment';
+
+import Nav from './nav/nav';
+import Home from './home/home';
+import PrestationCard from './prestation-card/prestationCard';
+import Cart from './cart/cart';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
@@ -23,10 +26,14 @@ function App() {
       )}
     >
       <div className="App">
-        <BasketContainer />
-        <AddressForm />
-        <Appointment />
-        <HomePage />
+        <Router>
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/cart" component={Cart} />
+            <Route path="/:gender" render={props => <PrestationCard {...props} />} />
+          </Switch>
+        </Router>
       </div>
     </Provider>
   );

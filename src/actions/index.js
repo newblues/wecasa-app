@@ -4,12 +4,17 @@ import { AT } from './action-types';
 const END_POINT = 'https://www.wecasa.fr/api/techtest/';
 
 export const fetchCatalog = () => {
-  return function(dispatch) {
+  return dispatch => {
     dispatch({ type: AT.FETCH_CATALOG_PENDING });
     fetch(`${END_POINT}/universe`)
-      .then(response => response.json())
       .then(response => {
-        dispatch({ type: AT.FETCH_CATALOG_SUCCESS, payload: response });
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(json => {
+        dispatch({ type: AT.FETCH_CATALOG_SUCCESS, payload: json });
       })
       .catch(error => {
         dispatch({ type: AT.FETCH_CATALOG_ERROR, payload: error });
@@ -17,21 +22,54 @@ export const fetchCatalog = () => {
   };
 };
 
-export const addPrestation = (prestation, ref) => {
+// export const fetchCatalog = () => {
+//   return async dispatch => {
+//     await fetch(`${END_POINT}/universe`)
+//       .then(async response => {
+//         dispatch({ type: AT.FETCH_CATALOG_PENDING });
+//         return await response.json();
+//       })
+//       .then(async json => {
+//         dispatch({ type: AT.FETCH_CATALOG_SUCCESS, payload: json });
+//       })
+//       .catch(error => {
+//         dispatch({ type: AT.FETCH_CATALOG_ERROR, payload: error });
+//       });
+//   };
+// };
+
+export const addPrestation = prestation => {
   return function(dispatch) {
     dispatch({
       type: AT.ADD_PRESTATION,
       payload: prestation,
-      ref,
     });
   };
 };
 
-export const deletePrestation = prestation => {
+export const deletePrestation = reference => {
   return function(dispatch) {
     dispatch({
       type: AT.DELETE_PRESTATION,
-      payload: prestation,
+      reference,
+    });
+  };
+};
+
+export const increaseQty = reference => {
+  return function(dispatch) {
+    dispatch({
+      type: AT.INCREASE_QTY,
+      reference,
+    });
+  };
+};
+
+export const decreaseQty = reference => {
+  return function(dispatch) {
+    dispatch({
+      type: AT.DECREASE_QTY,
+      reference,
     });
   };
 };

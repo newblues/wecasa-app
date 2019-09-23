@@ -1,0 +1,10 @@
+.avatar {
+  height: 100px;
+  width: 100px;
+}
+
+.card {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,21 @@
+.cartContainer {
+  margin-top: 25px;
+}
+
+.cartQty {
+  margin-bottom: 15px;
+}
+
+.cartTitle {
+  color: #ff675d;
+}
+
+.resumeContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.resumeContent {
+  width: 250px;
+  background-color: #f2f2f3;
+}
