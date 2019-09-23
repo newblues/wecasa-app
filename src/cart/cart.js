@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Table, Button } from 'reactstrap';
 
-import { FaTrash, FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
+import { FaTrashAlt, FaPlusSquare, FaMinusSquare } from 'react-icons/fa';
 
 import { increaseQty, decreaseQty, deletePrestation } from '../actions/index';
 import './cart.css';
@@ -32,59 +32,67 @@ const Cart = ({ cart, increaseQty, decreaseQty, deletePrestation }) => {
   };
   return (
     <div className="cartContainer">
-      <div className="pouet">
-        <h2 className="cartTitle">Mon panier</h2>
-        <Table className="mt-4 responsive">
-          <thead>
-            <tr>
-              <th>PRESTATIONS</th>
-              <th>DUREE</th>
-              <th>PRIX</th>
-              <th>QUANTITE</th>
-              <th>TOTAL</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.map(prestation => {
-              return (
-                <tr key={prestation.reference}>
-                  <td>{prestation.title}</td>
-                  <td>{prestation.duration}</td>
-                  <td>{formatPrice(prestation.price)}</td>
-                  <td>
-                    <div className="cartQty">
-                      <FaMinusCircle
-                        className="icon"
-                        onClick={() => decreaseQty(prestation.reference)}
-                      />
-                      {prestation.quantity}
-                      <FaPlusCircle
-                        className="icon"
-                        onClick={() => increaseQty(prestation.reference)}
-                      />
-                    </div>
-                  </td>
-                  <td>
-                    {calculSubTotalPrice(prestation.price, prestation.quantity)}
-                    <FaTrash
-                      className="icon"
-                      onClick={() => deletePrestation(prestation.reference)}
-                    />
-                  </td>
+      {cart.length > 0 ? (
+        <div>
+          <>
+            <h3 className="cartTitle">Mon panier</h3>
+            <Table bordered hover className="mt-4 responsive table table-light ">
+              <thead>
+                <tr>
+                  <th>PRESTATIONS</th>
+                  <th>DUREE</th>
+                  <th>PRIX</th>
+                  <th>QUANTITE</th>
+                  <th>TOTAL</th>
+                  <th></th>
                 </tr>
-              );
-            })}
-          </tbody>
-        </Table>
-      </div>
-      <div className="resumeContainer">
-        <div className="resumeContent">
-          <h4>TOTAL: {calculTotalPrice(cart)}</h4>
-          <p>Temps estimé: {calculTotalDuration(cart)}</p>
-          <Button className="btn-color border boder-light">Valider mon panier</Button>
+              </thead>
+              <tbody>
+                {cart.map(prestation => {
+                  return (
+                    <tr key={prestation.reference}>
+                      <td> {prestation.title}</td>
+                      <td>{prestation.duration} min</td>
+                      <td>{formatPrice(prestation.price)}</td>
+                      <td>
+                        <div className="cartQty">
+                          <FaMinusSquare
+                            className="icon-qty icon "
+                            onClick={() => decreaseQty(prestation.reference)}
+                          />
+                          {prestation.quantity}
+                          <FaPlusSquare
+                            className="icon-qty icon"
+                            onClick={() => increaseQty(prestation.reference)}
+                          />
+                        </div>
+                      </td>
+                      <td>{calculSubTotalPrice(prestation.price, prestation.quantity)}</td>
+                      <td>
+                        {' '}
+                        <FaTrashAlt
+                          className="icon icon-trash"
+                          onClick={() => deletePrestation(prestation.reference)}
+                        />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </>
+          <div className="box-container">
+            <div className="box-content">
+              <h4>TOTAL: {calculTotalPrice(cart)}</h4>
+              <p>Temps estimé: {calculTotalDuration(cart)}</p>
+              <Button className="btn-color border boder-light">Valider mon panier</Button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      ) : (
+        <h3 className="cartTitle">Mon panier est vide pour le moment</h3>
+      )}
+    </div> // cartcontainer
   );
 };
 

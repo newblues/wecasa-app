@@ -44,22 +44,18 @@ const PrestationCard = props => {
     if (gender === 'man') {
       return (
         <CardImg
-          top
-          width="100%"
           src={require('../assets/man.png')}
           alt="Card image cap"
-          className="avatar text-center"
+          className="avatar card-img-top bg-custom"
         />
       );
     }
     if (gender === 'woman') {
       return (
         <CardImg
-          top
-          width="100%"
           src={require('../assets/woman.png')}
           alt="Card image cap"
-          className="avatar"
+          className="card-img-top bg-custom "
         />
       );
     }
@@ -67,10 +63,10 @@ const PrestationCard = props => {
       return (
         <CardImg
           top
-          width="100%"
+          variant="top"
           src={require('../assets/child.png')}
           alt="Card image cap"
-          className="avatar"
+          className="card-img-top bg-custom"
         />
       );
     }
@@ -78,13 +74,15 @@ const PrestationCard = props => {
 
   const prestationList = haircutUniverse.categories[genderNb].prestations.map(prestation => {
     return (
-      <Col key={prestation.reference} xs="12" md="6" lg="3">
-        <Card className="card">
+      <Col key={prestation.reference} xs="12" sm="6" lg="3">
+        <Card className="cardCustom text-center">
           {renderImg()}
           <CardBody>
-            <CardTitle className="text-center">{prestation.title}</CardTitle>
-            <CardSubtitle>{prestation.price / 100} Euros</CardSubtitle>
-            <CardText>{prestation.duration} min</CardText>
+            <CardTitle className="card-title">
+              {prestation.title} - {prestation.duration}min
+            </CardTitle>
+            <CardSubtitle className="card-price">{prestation.price / 100} Euros</CardSubtitle>
+            <CardText className="card-"></CardText>
             <Button onClick={() => addPrestation(prestation)}>
               <FaShoppingCart />
             </Button>
@@ -95,7 +93,7 @@ const PrestationCard = props => {
   });
 
   return (
-    <div>
+    <div className="wrapper">
       <Container>
         <Row>{prestationList}</Row>
       </Container>

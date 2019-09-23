@@ -1,21 +1,42 @@
 .cartContainer {
-  margin-top: 25px;
+  padding: 25px 100px 25px 100px;
+  height: calc(100vh - 75px); /* if you have a 70px navbar => height: calc(100vh - 70px); */
 }
 
 .cartQty {
-  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-qty {
+  font-size: 20px;
+}
+
+.icon-trash {
+  font-size: 20px;
 }
 
 .cartTitle {
   color: #ff675d;
 }
 
-.resumeContainer {
+.box-container {
   display: flex;
   justify-content: flex-end;
 }
 
-.resumeContent {
+.box-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 0px 0;
+  padding: 25px;
   width: 250px;
-  background-color: #f2f2f3;
+  border: 1px solid #ff675d;
+  border-radius: 10px;
+}
+
+.table tr {
+  text-align: center;
 }
