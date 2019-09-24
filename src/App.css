@@ -22,6 +22,15 @@
 
 a {
   color: #002b32;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.link-custom {
+  text-decoration: none;
 }
 
 .icon {

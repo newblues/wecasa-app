@@ -3,7 +3,7 @@ import { Button, Form, Label, Input } from 'reactstrap';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addAddress } from '../actions/index';
+import { addAddress } from '../../actions/index';
 
 class addressForm extends Component {
   constructor() {

@@ -10,7 +10,7 @@
 }
 
 .bg-custom {
-  background-color: #ff675d;
+  /* background-color: #ff675d; */
 }
 
 .cardCustom {
@@ -19,5 +19,5 @@
 }
 
 .wrapper {
-  padding: 25px 100px 25px 100px;
+  padding: 50px 200px 50px 200px;
 }

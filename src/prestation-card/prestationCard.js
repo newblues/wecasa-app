@@ -14,7 +14,10 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FaShoppingCart } from 'react-icons/fa';
+import { forma } from 'module';
 import { addPrestation } from '../actions/index';
+
+import { formatPrice, timeConvert } from '../helpers/helpers';
 
 import './prestationCard.css';
 
@@ -79,11 +82,16 @@ const PrestationCard = props => {
           {renderImg()}
           <CardBody>
             <CardTitle className="card-title">
-              {prestation.title} - {prestation.duration}min
+              {prestation.title}
+              {/* <p>{prestation.duration}min</p> */}
             </CardTitle>
-            <CardSubtitle className="card-price">{prestation.price / 100} Euros</CardSubtitle>
+
+            <CardSubtitle className="card-price">{formatPrice(prestation.price)}</CardSubtitle>
             <CardText className="card-"></CardText>
-            <Button onClick={() => addPrestation(prestation)}>
+            <Button
+              className="btn-color  border boder-light"
+              onClick={() => addPrestation(prestation)}
+            >
               <FaShoppingCart />
             </Button>
           </CardBody>

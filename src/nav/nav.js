@@ -24,8 +24,8 @@ const Nav = ({ cart }) => {
 
   return (
     <div className="nav-container">
-      <Link to="/" className="left">
-        HOME
+      <Link to="/" className="left link-custom">
+        <h4 className="brand-title">HAIRbnBARB</h4>
       </Link>
       <div className="center">
         <Link to="woman">FEMME</Link>
