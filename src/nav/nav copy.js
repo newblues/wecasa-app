@@ -1,6 +1,7 @@
 import React from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import { connect , useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 
 import { Link } from 'react-router-dom';
 
@@ -8,9 +9,8 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 import './nav.css';
 
-const Nav = () => {
-  const cart = useSelector(state => state.cart.cart);
-
+const Nav = ({ cart }) => {
+  //
   const calculNbPrestation = cart => {
     // https://stackoverflow.com/questions/54944883/can-not-calculate-sum-of-values-in-array-via-reduce-method
     // https://www.freecodecamp.org/news/reduce-f47a7da511a9/
@@ -44,4 +44,17 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+const mapStateToProps = state => {
+  return {
+    cart: state.cart.cart,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  ...bindActionCreators({}, dispatch),
+});
+
+export default connect(
+  mapStateToProps,
+  null,
+)(Nav);
