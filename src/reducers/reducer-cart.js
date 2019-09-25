@@ -44,6 +44,12 @@ export default function ReducerBasket(state = initialState, action) {
     case AT.DECREASE_QTY:
       const qtyDown = state.cart.map(item => {
         if (item.reference === action.reference) {
+          if (item.quantity === 0) {
+            return {
+              ...item,
+              quantity: 0,
+            };
+          }
           return {
             ...item,
             quantity: item.quantity - 1,
