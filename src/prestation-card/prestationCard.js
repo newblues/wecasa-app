@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FaShoppingCart } from 'react-icons/fa';
 import { forma } from 'module';
-import { addPrestation } from '../actions/index';
+import { addPrestation } from '../redux/actions/index';
 
 import { formatPrice, timeConvert } from '../helpers/helpers';
 

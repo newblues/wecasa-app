@@ -5,7 +5,7 @@ import { Table, Button } from 'reactstrap';
 
 import { FaTrashAlt, FaPlusSquare, FaMinusSquare } from 'react-icons/fa';
 
-import { increaseQty, decreaseQty, deletePrestation } from '../actions/index';
+import { increaseQty, decreaseQty, deletePrestation } from '../redux/actions/index';
 import './cart.css';
 
 import { formatPrice, timeConvert } from '../helpers/helpers';

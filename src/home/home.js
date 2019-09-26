@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Row, Container } from 'reactstrap';
 import { FaFemale, FaMale, FaChild } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { fetchCatalog } from '../actions/index';
+import { fetchCatalog } from '../redux/actions/index';
 
 import Cart from '../cart/cart';
 import './home.css';

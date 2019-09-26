@@ -6,16 +6,14 @@ const initialState = {
   cart: [],
 };
 
-export default function ReducerBasket(state = initialState, action) {
+const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case AT.ADD_PRESTATION:
       let updatedCart = [...state.cart];
       const updatedItemIndex = updatedCart.findIndex(
         item => item.reference === action.payload.reference,
       );
-
       if (updatedItemIndex < 0) {
-        // updatedCart.push({ ...action.payload, quantity: 1 }) // ES5
         updatedCart = [...updatedCart, { ...action.payload, quantity: 1 }]; // ES6
       } else {
         const updatedItem = { ...updatedCart[updatedItemIndex] };
@@ -70,4 +68,6 @@ export default function ReducerBasket(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default cartReducer;
