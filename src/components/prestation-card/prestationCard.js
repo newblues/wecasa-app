@@ -14,10 +14,9 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FaShoppingCart } from 'react-icons/fa';
-import { forma } from 'module';
-import { addPrestation } from '../redux/actions/index';
+import { addPrestation } from '../../redux/actions/index';
 
-import { formatPrice, timeConvert } from '../helpers/helpers';
+import { formatPrice, timeConvert } from '../../helpers/helpers';
 
 import './prestationCard.css';
 
@@ -47,7 +46,7 @@ const PrestationCard = props => {
     if (gender === 'man') {
       return (
         <CardImg
-          src={require('../assets/man.png')}
+          src={require('../../assets/man.png')}
           alt="Card image cap"
           className="avatar card-img-top bg-custom"
         />
@@ -56,7 +55,7 @@ const PrestationCard = props => {
     if (gender === 'woman') {
       return (
         <CardImg
-          src={require('../assets/woman.png')}
+          src={require('../../assets/woman.png')}
           alt="Card image cap"
           className="card-img-top bg-custom "
         />
@@ -67,7 +66,7 @@ const PrestationCard = props => {
         <CardImg
           top
           variant="top"
-          src={require('../assets/child.png')}
+          src={require('../../assets/child.png')}
           alt="Card image cap"
           className="card-img-top bg-custom"
         />

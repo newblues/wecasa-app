@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 import { Row, Container } from 'reactstrap';
 import { FaFemale, FaMale, FaChild } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { fetchCatalog } from '../redux/actions/index';
+import { fetchCatalog } from '../../redux/actions/index';
 
-import Cart from '../cart/cart';
+import Cart from '../../components/cart/cart';
 import './home.css';
 
 class Home extends Component {

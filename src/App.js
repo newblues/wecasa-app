@@ -5,10 +5,11 @@ import { Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-import Nav from './nav/nav';
-import Home from './home/home';
-import PrestationCard from './prestation-card/prestationCard';
-import Cart from './cart/cart';
+import Nav from './components/nav/nav';
+import Home from './pages/home/home';
+
+import PrestationCard from './components/prestation-card/prestationCard';
+import Cart from './components/cart/cart';
 
 const App = () => {
   return (
