@@ -17,22 +17,12 @@ class Home extends Component {
     };
   }
 
-  componentDidMount = async () => {
-    await this.props.fetchCatalog();
-    await this.setState({ loaded: true });
+  componentDidMount = () => {
+    const { fetchCatalog } = this.props;
+    fetchCatalog();
   };
 
   render() {
-    const { haircutUniverse, pending } = this.props;
-
-    // let test;
-    // try {
-    //   test = haircutUniverse.categories[1];
-    //   console.log('TLC: Home -> render -> test', test);
-    // } catch (error) {
-    //   console.log('pas trouve');
-    // }
-
     return (
       <div className="homeContainer">
         <div className="homeTitle">

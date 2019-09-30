@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { useSelector } from 'react-redux';
+import { withRouter , Link } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
+
 
 import { FaShoppingCart } from 'react-icons/fa';
 
@@ -44,4 +44,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default withRouter(Nav);

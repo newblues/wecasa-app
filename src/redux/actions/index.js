@@ -74,11 +74,11 @@ export const decreaseQty = reference => {
   };
 };
 
-export const addAddress = address => {
+export const addUserAddress = userAddress => {
   return function(dispatch) {
     dispatch({
-      type: AT.ADD_ADDRESS,
-      payload: address,
+      type: AT.ADD_USER_ADDRESS,
+      payload: userAddress,
     });
   };
 };

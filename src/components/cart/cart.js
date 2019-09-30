@@ -1,4 +1,6 @@
 import React from 'react';
+import { withRouter, Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Table, Button } from 'reactstrap';
@@ -6,13 +8,12 @@ import { Table, Button } from 'reactstrap';
 import { FaTrashAlt, FaPlusSquare, FaMinusSquare } from 'react-icons/fa';
 
 import { increaseQty, decreaseQty, deletePrestation } from '../../redux/actions/index';
+
 import './cart.css';
 
 import { formatPrice, timeConvert } from '../../helpers/helpers';
 
-import FormAddress from '../form-adress/form-adress';
-
-const Cart = ({ cart, increaseQty, decreaseQty, deletePrestation }) => {
+const Cart = ({ cart, increaseQty, decreaseQty, deletePrestation, history }) => {
   //
   //
   const calculSubTotalPrice = (price, qty) => {
@@ -86,10 +87,12 @@ const Cart = ({ cart, increaseQty, decreaseQty, deletePrestation }) => {
             <div className="box-content">
               <h4>TOTAL: {calculTotalPrice(cart)}</h4>
               <p>Temps estimé: {calculTotalDuration(cart)}</p>
-              <Button className="btn-color border boder-light">Réserver</Button>
+
+              <Link to="/step/useraddress">
+                <Button className="btn-color border boder-light">Réserver</Button>
+              </Link>
             </div>
           </div>
-          {/* <FormAddress /> */}
         </div>
       ) : (
         <h3 className="cartTitle">Mon panier est vide pour le moment</h3>
@@ -108,7 +111,9 @@ const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({ increaseQty, decreaseQty, deletePrestation }, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Cart);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(Cart),
+);
