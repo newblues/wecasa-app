@@ -1,5 +1,5 @@
 .cartContainer {
-  padding: 25px 100px 25px 100px;
+  padding: 25px 100px 0px 100px;
   /* height: calc(100vh - 75px); if you have a 70px navbar => height: calc(100vh - 70px); */
 }
 

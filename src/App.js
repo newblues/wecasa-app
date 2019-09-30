@@ -21,7 +21,6 @@ const App = () => {
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/step/useraddress" component={UserAddressPage} />
         <Route exact path="/step/appointment" component={AppointmentPage} />
-
         <Route exact path="/:gender" render={props => <PrestationCard {...props} />} />
       </Switch>
     </div>

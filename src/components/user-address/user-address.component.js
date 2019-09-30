@@ -4,6 +4,8 @@ import Script from 'react-load-script';
 import { Input, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import { UserAddressContainer, UserAddressTitle, UserAddressSubTitle } from './user-address.styles';
+
 const AddressInput = ({ onScriptLoad, onInputChange, onBtnClick, query }) => (
   <>
     <Script

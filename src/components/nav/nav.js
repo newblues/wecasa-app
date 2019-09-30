@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { withRouter , Link } from 'react-router-dom';
-
-
+import { withRouter, Link } from 'react-router-dom';
 
 import { FaShoppingCart } from 'react-icons/fa';
 
@@ -29,7 +27,7 @@ const Nav = () => {
         <h4 className="brand-title">HAIRbnBARB</h4>
       </Link>
       <div className="center">
-        <Link to="woman">FEMME</Link>
+        <Link to="/catalog/woman">FEMME</Link>
         <Link to="man">HOMME</Link>
         <Link to="child">ENFANT</Link>
       </div>

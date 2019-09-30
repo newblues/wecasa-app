@@ -13,9 +13,12 @@ import './cart.css';
 
 import { formatPrice, timeConvert } from '../../helpers/helpers';
 
-const Cart = ({ cart, increaseQty, decreaseQty, deletePrestation, history }) => {
+const Cart = ({ cart, increaseQty, decreaseQty, deletePrestation }) => {
   //
   //
+
+  const currentPosition = window.scrollY;
+
   const calculSubTotalPrice = (price, qty) => {
     const subTotal = price * qty;
     return formatPrice(subTotal);
@@ -31,6 +34,11 @@ const Cart = ({ cart, increaseQty, decreaseQty, deletePrestation, history }) => 
     let totalDuration = 0;
     cart.map(prestation => (totalDuration += prestation.duration * prestation.quantity));
     return timeConvert(totalDuration);
+  };
+
+  const handleClick = () => {
+    const updatedPostion = currentPosition + 500;
+    return window.scroll(500, 500);
   };
   return (
     <div className="cartContainer">
@@ -89,7 +97,9 @@ const Cart = ({ cart, increaseQty, decreaseQty, deletePrestation, history }) => 
               <p>Temps estimé: {calculTotalDuration(cart)}</p>
 
               <Link to="/step/useraddress">
-                <Button className="btn-color border boder-light">Réserver</Button>
+                <Button className="btn-color border boder-light" onClick={() => handleClick()}>
+                  Réserver
+                </Button>
               </Link>
             </div>
           </div>
