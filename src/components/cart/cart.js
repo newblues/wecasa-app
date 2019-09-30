@@ -36,10 +36,7 @@ const Cart = ({ cart, increaseQty, decreaseQty, deletePrestation }) => {
     return timeConvert(totalDuration);
   };
 
-  const handleClick = () => {
-    const updatedPostion = currentPosition + 500;
-    return window.scroll(500, 500);
-  };
+  const handleClick = () => {};
   return (
     <div className="cartContainer">
       {cart.length > 0 ? (

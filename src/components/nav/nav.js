@@ -27,7 +27,7 @@ const Nav = () => {
         <h4 className="brand-title">HAIRbnBARB</h4>
       </Link>
       <div className="center">
-        <Link to="/catalog/woman">FEMME</Link>
+        <Link to="woman">FEMME</Link>
         <Link to="man">HOMME</Link>
         <Link to="child">ENFANT</Link>
       </div>

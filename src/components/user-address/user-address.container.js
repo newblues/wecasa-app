@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -11,6 +11,11 @@ import { addUserAddress } from '../../redux/actions/index';
 
 const AddressContainer = ({ addUserAddress }) => {
   const [address, setAddress] = useState('');
+
+  useEffect(() => {
+    const currentPosition = window.scrollY;
+    window.scroll(0, currentPosition + 100);
+  });
 
   let autocomplete = '';
 
